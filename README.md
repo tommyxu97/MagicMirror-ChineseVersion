@@ -1,4 +1,4 @@
-#MagicMirror-ChineseVersion
+# MagicMirror-ChineseVersion
 
 >This project is an open source project by another Github user, but it doesn't work very well with Chinese. So I public some modification with this Magicmirror master.
 
