@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='' data-ng-app='baiduWeatherWidgetApp' data-ng-controller='MainCtrl'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='ie=edge' http-equiv='x-ua-compatible'>
+
+    <meta content='' name='description'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <link href="assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href='favicon.ico' rel='icon' type='image/x-icon'>
+  </head>
+  <body class='home'  style="background:black;">
+    <div class='container-fiuled'>
+        <div class='col-lg-12 col-sm-12 col-xs-12'>
+          <div class='weather-layout js-weather-layout weather-flip'>
+            <div class='weather-widget' ng-controller='BaiduWeatherCtrl'>
+              <div class='weather-widget-main col-lg-12'>
+                <div class='weather-loading' ng-show='loading'>
+                  <i class='fa fa-spinner fa-pulse fa-3x'></i>
+                </div>
+                <i class='icn-weather' data-weather-icn='{{item.results[0].weather_data[0].weather}}' ng-repeat='item in weathers'></i>
+                <p class='title-deg' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[0].temperature}}
+                </p>
+                <p class='title-weather' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[0].weather}}
+                </p>
+                <p class='title-wind' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[0].wind}}
+                </p>
+                <p ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[0].date}}
+                </p>
+                <h4 ng-repeat='item in weathers'>
+                  {{item.results[0].currentCity}}
+                </h4>
+                <form class='hidden js-weather-settings' name='localStorageCityForm' ng-controller='WeatherSettingsCtrl'>
+                  <div class='form-group'>
+                    <label>
+                      City:
+                      <strong data-ng-bind='localStorageCityValue' data-ng-show='localStorageCityValue'></strong>
+                    </label>
+                    <input class='form-control' data-ng-model='localStorageCity' data-ng-trim='false' name='input' placeholder='Type by chinese (贵阳)...' required='' type='text'>
+                  </div>
+                  <div class='form-group'>
+                    <a data-ng-show="!!!localStorageCityForm.input.$error.required" class="btn btn-default" data-ng-click="updateWeather()" href="javascript:void(0)">Done
+                    </a>
+                  </div>
+                  <div class='form-group'>
+                    <div class='alert alert-danger' data-ng-show='localStorageCityForm.input.$error.required'>
+                      <i class='fa fa-exclamation-triangle'></i>
+                      Required!
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class='weather-widget-side col-lg-4 col-xs-4'>
+                <i class='icn-weather' data-weather-icn='{{item.results[0].weather_data[1].weather}}' ng-repeat='item in weathers'></i>
+                <p class='title-deg' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[1].temperature}}
+                </p>
+                <p class='title-weather' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[1].weather}}
+                </p>
+                <p class='title-wind' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[1].wind}}
+                </p>
+                <p ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[1].date}}
+                </p>
+              </div>
+              <div class='weather-widget-side col-lg-4 col-xs-4'>
+                <i class='icn-weather' data-weather-icn='{{item.results[0].weather_data[2].weather}}' ng-repeat='item in weathers'></i>
+                <p class='title-deg' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[2].temperature}}
+                </p>
+                <p class='title-weather' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[2].weather}}
+                </p>
+                <p class='title-wind' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[2].wind}}
+                </p>
+                <p ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[2].date}}
+                </p>
+              </div>
+              <div class='weather-widget-side col-lg-4 col-xs-4'>
+                <i class='icn-weather' data-weather-icn='{{item.results[0].weather_data[3].weather}}' ng-repeat='item in weathers'></i>
+                <p class='title-deg' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[3].temperature}}
+                </p>
+                <p class='title-weather' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[3].weather}}
+                </p>
+                <p class='title-wind' ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[3].wind}}
+                </p>
+                <p ng-repeat='item in weathers'>
+                  {{item.results[0].weather_data[3].date}}
+                </p>
+              </div>
+            </div>
+            <a class="btn pull-right" ng-attr-city-settings="" href="javascript:void(0)">
+                <span class='btn-circle'>
+                <i class='icn-info'></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/javascripts/main.js" type="text/javascript"></script>
+    <script src="assets/javascripts/components.js" type="text/javascript"></script>
+    <script src="assets/javascripts/application.js" type="text/javascript"></script>
+    <script src="assets/javascripts/controllers.js" type="text/javascript"></script>
+    <script src="assets/javascripts/directives.js" type="text/javascript"></script>
+  </body>
+</html>
