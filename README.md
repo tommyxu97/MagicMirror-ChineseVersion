@@ -3,7 +3,7 @@
 >This project is an open source project by another Github user, but it doesn't work very well with Chinese. So I public some modification with this Magicmirror master.
 
 ## It looks like this
-！[Click here](http://www.xht97.cn/Magicmirror)
+[Click here](http://www.xht97.cn/Magicmirror)
 
 ## Functions
 You can easily handle this web application with 
